@@ -1,0 +1,11 @@
+Stickman is a pretty famous game in the world!
+The meaning is to guess the word the way to choosing the letter,
+and than you get to see if the chosen letter in thast word is.
+
+How it works:
+1. Computer invents an random word and says how mutch letters it has.
+2. You, as player, get 5 lives to play and try to guess the word per letter.
+3. If chosen letter is in the word, you save your lives and play on.
+4. If chosen letter is not in the word, you lose 1 live. 
+5. If you have no lives, the game stops.
+
