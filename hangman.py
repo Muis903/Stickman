@@ -15,6 +15,7 @@ class Hangman():
         self.word = choice(self.words)
         self.len_letters = len(list(self.word))
         print("The word has " + str(self.len_letters) + " letters.")
+        print(self.word)
         return self.word
         return self.len_letters
 
@@ -29,8 +30,18 @@ class Hangman():
                 print("Used letters:")
                 print(u_l)
                 if letter in list(self.word):
+                    self.position = self.word.index(letter)
+                    if self.position + 1 == 1:
+                        print("This is the 1'st letter of the word.")
+                    elif self.position + 1 == 2:
+                        print("This is the 2'nd letter of the word.")
+                    elif self.position + 1 == 3:
+                        print("This is the 3'rd letter of the word.")
+                    elif self.position + 1  > 3:
+                        self.position = self.position + 1
+                        print("This is the " + str(self.position) + "'th letter of the word.")
+
                     return letter
-                    return index(letter)
 
                 if letter not in list(self.word):
                     self.lives -= 1
@@ -39,19 +50,23 @@ class Hangman():
         """Fill the empty spaces of word with guessed letters."""
         self.empty_word = "_"*len(list(self.word))
         self.empty_word = list(self.empty_word)
-        for e in self.empty_word:
-            e = letter
-            return self.empty_word
+        print(len (self.empty_word))
+        if self.empty_word[int(self.position)] > int(len(self.word)):
+            self.empty_word[-1] = letter
+        else:
+            self.empty_word[self.position] = letter
+        return self.empty_word
 
     def show_word(self):
         """Show the word."""
         self.guessed_word = self.empty_word
         print(self.guessed_word)
 
-i = Hangman()
-while i.lives >0:
+if __name__ == '__main__':
+    i = Hangman()
     i.generate_word()
-    letter = input("Choose the letter: ")
-    i.guess_letter(letter)
-    i.add_guessed_letter()
-    i.show_word()
+    while i.lives >0:
+        letter = input("Choose the letter: ")
+        i.guess_letter(letter)
+        i.add_guessed_letter()
+        i.show_word()
