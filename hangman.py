@@ -26,6 +26,7 @@ class Hangman():
             else:
                 self.used_letters.append(letter)
                 u_l = ' '.join(str(letter) for letter in self.used_letters)
+                print("Used letters:")
                 print(u_l)
                 if letter in list(self.word):
                     return letter
@@ -36,10 +37,10 @@ class Hangman():
 
     def add_guessed_letter(self):
         """Fill the empty spaces of word with guessed letters."""
-        self.empty_word = "_ "*len(list(self.word))
+        self.empty_word = "_"*len(list(self.word))
         self.empty_word = list(self.empty_word)
         for e in self.empty_word:
-            e[self.word.index(letter)] = letter
+            e = letter
             return self.empty_word
 
     def show_word(self):
@@ -47,10 +48,10 @@ class Hangman():
         self.guessed_word = self.empty_word
         print(self.guessed_word)
 
-
 i = Hangman()
-i.generate_word()
-letter = input("Choose the letter: ")
-i.guess_letter(letter)
-i.add_guessed_letter()
-i.show_word()
+while i.lives >0:
+    i.generate_word()
+    letter = input("Choose the letter: ")
+    i.guess_letter(letter)
+    i.add_guessed_letter()
+    i.show_word()
