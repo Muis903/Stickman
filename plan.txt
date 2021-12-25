@@ -1,4 +1,4 @@
-Stickman is a pretty famous game in the world!
+Hangman is a pretty famous game in the world!
 The meaning is to guess the word the way to choosing the letter,
 and than you get to see if the chosen letter in thast word is.
 
